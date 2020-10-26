@@ -7,8 +7,8 @@ Frontend of kupizalog.kz, VueJS
 1. Clone repository
 
 ```bash
-$ git clone https://github.com/daistd/kz-front
-$ cd kz-front
+$ git clone https://github.com/AbylaikhanT/kupi-zalog
+$ cd kupi-zalog
 ```
 
 2. Change branch to develop
