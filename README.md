@@ -11,11 +11,11 @@ $ git clone https://github.com/daistd/kz-front
 $ cd kz-front
 ```
 
-2. Change branch
+2. Change branch to develop
 
 ```bash
-$ git fetch origin new_version
-$ git checkout new_version
+$ git fetch origin develop
+$ git checkout develop
 ```
 
 3. Install Javascript dependencies
