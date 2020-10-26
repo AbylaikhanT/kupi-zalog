@@ -1,0 +1,24 @@
+@mixin a($color) {
+    color: $color;
+    text-decoration: none;
+
+    &:link {
+        color: $color;
+        text-decoration: none;
+    }
+
+    &:visited {
+        color: $color;
+        text-decoration: none;
+    }
+
+    &:hover {
+        color: $color;
+        text-decoration: none;
+    }
+
+    &:active {
+        color: $color;
+        text-decoration: none;
+    }
+}

@@ -1,0 +1,111 @@
+$white: #ffffff;
+$black: #000000;
+$blue: #4da1ff;
+$blue2: #4a90e2;
+$dark-blue: #31394d;
+$dark-blue2: #323c47;
+$gray: #95989a;
+$light-gray: #fafbfc;
+$light-gray2: #d0d7dd;
+$light-gray3: #e9eff4;
+$light-gray4: #fafbfc;
+$light-gray5: #bfcad1;
+$light-gray6: #ebedf4;
+$light-gray7: #b9c5cd;
+$light-gray8: #efefef;
+$dark-gray: #5d6579;
+$dark-gray2: #989898;
+$dark-gray3: #707070;
+$dark-gray4: #c6c6c6;
+$dark-gray5: #b4b4b4;
+$yellow: #f5c811;
+$yellow2: #ffd012;
+$yellow3: #ffc726;
+$green: #6eb91b;
+$green2: #a6e50f;
+$red: #ff0048;
+$red2: #f5515f;
+
+$light-black: #5d6579;
+$border-white: #fafbfc;
+$red: #f5515f;
+$active-gray: #e9eff4;
+$gray3: #989898;
+$black: #323c47;
+$yellow: #ffd012;
+$top-yellow: #fff500;
+$border-gray: #95989a;
+$button-gray: #585e66;
+$green: #6eb91b;
+$item-gray: #b9c5cd;
+$favorite-yellow: #f5c811;
+$search-favorite-yellow: #fdcf2f;
+$orange: #ff6d4a;
+$avatar-gray: #f5f6fa;
+$avatar-black: #31394d;
+$profile-red: #ff0048;
+$completely-black: #000000;
+$profile-password-gray: #b4b4b4;
+$checkbox-green: #a6e50f;
+$almost-black: #010101;
+$brown: #707070;
+$gray2: #ebedf4;
+$blue2: #4a90e2;
+$yellow: #ffc726;
+$white: #ffffff;
+$border-white: #fafbfc;
+$blue: #4da1ff;
+$red: #f5515f;
+$gray: #d0d7dd;
+$active-gray: #e9eff4;
+$black: #323c47;
+$yellow: #ffd012;
+$top-yellow: #fff500;
+$light-black: #5d6579;
+$border-gray: #95989a;
+$button-gray: #585e66;
+$green: #6eb91b;
+$item-gray: #b9c5cd;
+$favorite-yellow: #f5c811;
+$search-favorite-yellow: #fdcf2f;
+$orange: #ff6d4a;
+$avatar-gray: #f5f6fa;
+$avatar-black: #31394d;
+$profile-red: #ff0048;
+$completely-black: #000000;
+$profile-password-gray: #b4b4b4;
+$checkbox-green: #a6e50f;
+$almost-black: #010101;
+$brown: #707070;
+$gray2: #ebedf4;
+$blue2: #4a90e2;
+$yellow: #ffc726;
+
+$font: Roboto;
+
+@mixin anchor($color) {
+    a {
+        color: $color;
+        text-decoration: none;
+
+        &:link {
+            color: $color;
+            text-decoration: none;
+        }
+
+        &:visited {
+            color: $color;
+            text-decoration: none;
+        }
+
+        &:hover {
+            color: $color;
+            text-decoration: none;
+        }
+
+        &:active {
+            color: $color;
+            text-decoration: none;
+        }
+    }
+}
