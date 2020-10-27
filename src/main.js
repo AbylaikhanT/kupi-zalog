@@ -185,7 +185,7 @@ const store = new Vuex.Store({
                         store.dispatch('setUserInfo');
                         store.dispatch('setUserCompany').then((company) => {
                             if (company.status) {
-                                store.dispatch('setCompany').then(function() {
+                                store.dispatch('setCompany').then(function () {
                                     resolve();
                                 }.bind(this));
                             } else {
@@ -240,7 +240,7 @@ const store = new Vuex.Store({
     }
 });
 
-axios.interceptors.request.use(function(config) {
+axios.interceptors.request.use(function (config) {
     if (this && this.getters.loggedIn) {
         config.headers.Authorization = this.state.token;
     }

@@ -22,7 +22,11 @@
         <div class="right">
           <div v-if="field.type === 'select'" class="select-wrapper">
             <select v-model="filledFields[field.id]">
-              <option v-for="(value,key) in field.values" :key="key" :value="value.value">
+              <option
+                v-for="(value, key) in field.values"
+                :key="key"
+                :value="value.value"
+              >
                 {{ value.value }}
               </option>
             </select>
@@ -57,6 +61,12 @@
         <div class="left">Название</div>
         <div class="right">
           <input v-model="name" type="text" />
+        </div>
+      </div>
+      <div class="name">
+        <div class="left">Телефон</div>
+        <div class="right">
+          <input v-model="publicNumber" type="text" />
         </div>
       </div>
       <div class="price">
@@ -121,6 +131,7 @@ export default {
       name: "",
       price: "",
       description: "",
+      publicNumber: "",
       images: [
         undefined,
         undefined,
@@ -151,6 +162,7 @@ export default {
       formData.append("name", this.name);
       formData.append("price", this.price);
       formData.append("content", this.description);
+      formData.append("public_number", this.publicNumber);
       formData.append(
         "category",
         this.selectedCategory[this.selectedCategory.length - 1].id
