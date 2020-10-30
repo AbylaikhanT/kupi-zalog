@@ -7,7 +7,6 @@
 </template>
 
 <script>
-
 export default {
   name: "InformationalPage",
   components: {},
@@ -28,7 +27,6 @@ export default {
     },
   },
   mounted: function () {
-    console.log("inf page");
     this.$http
       .get("page/list/", {
         headers: {

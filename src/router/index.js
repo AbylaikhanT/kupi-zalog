@@ -64,277 +64,279 @@ import CloudPayment from "@/components/All/CloudPayment";
 export default new Router({
     mode: 'history',
     routes: [{
-            path: '/cloudpayments',
-            name: 'cloudpayments',
-            component: CloudPayment
-        },
-        {
-            path: '/404',
-            name: 'not-found',
-            component: NotFound
-        },
-        {
-            path: '*',
-            redirect: '/404',
-            name: 'not-found-global',
-        },
-        {
-            path: '/profile',
-            name: 'profile',
-            component: AccountPage,
+        path: '/cloudpayments',
+        name: 'cloudpayments',
+        component: CloudPayment
+    },
+    {
+        path: '/404',
+        name: 'not-found',
+        component: NotFound
+    },
+    {
+        path: '*',
+        redirect: '/404',
+        name: 'not-found-global',
+    },
+    {
+        path: '/profile',
+        name: 'profile',
+        component: AccountPage,
+        children: [{
+            path: 'user',
+            name: 'user',
+            component: AccountUserContent,
             children: [{
-                    path: 'user',
-                    name: 'user',
-                    component: AccountUserContent,
-                    children: [{
-                            path: '',
-                            name: 'user-profile',
-                            component: AccountUserProfile,
-                            children: [{
-                                    path: '',
-                                    name: 'user-profile-info',
-                                    component: AccountUserProfileInfo
-                                },
-                                {
-                                    path: 'edit',
-                                    name: 'user-profile-edit',
-                                    component: AccountUserProfileEdit
-                                },
-                            ]
-                        },
-                        {
-                            path: 'favorites',
-                            name: 'user-favorites',
-                            component: AccountUserFavorites
-                        },
-                        {
-                            path: 'messages',
-                            name: 'user-messages',
-                            component: AccountUserMessages
-                        },
-                        {
-                            path: 'settings',
-                            name: 'user-settings',
-                            component: AccountUserSettings
-                        },
-                    ]
-                },
-                {
-                    path: 'company',
-                    name: 'company',
-                    component: AccountCompanyContent,
-                    children: [{
-                            path: '',
-                            name: 'company-profile',
-                            component: AccountCompanyProfile,
-                            children: [{
-                                    path: '',
-                                    name: 'company-profile-info',
-                                    component: AccountCompanyProfileInfo
-                                },
-                                {
-                                    path: 'edit',
-                                    name: 'company-profile-edit',
-                                    component: AccountCompanyProfileEdit
-                                },
-                            ]
-                        },
-                        {
-                            path: 'listings',
-                            name: 'company-listings',
-                            component: AccountCompanyListingsPage,
-                            children: [{
-                                    path: ':id',
-                                    name: 'company-listings-item',
-                                    component: AccountCompanyListing,
-                                    children: [{
-                                            path: '',
-                                            name: 'company-listing-item-detail',
-                                            component: AccountCompanyListingDetail
-                                        },
-                                        {
-                                            path: 'edit',
-                                            name: 'company-listing-item-edit',
-                                            component: AccountCompanyListingEdit
-                                        },
-                                    ]
-                                },
-                                {
-                                    path: '',
-                                    name: 'company-listings-list',
-                                    component: AccountCompanyListings
-                                },
-                            ]
-                        },
-                        {
-                            path: 'add-product',
-                            name: 'company-add-product',
-                            component: AccountCompanyAddProduct
-                        },
-                        {
-                            path: 'messages',
-                            name: 'company-messages',
-                            component: AccountCompanyMessages
-                        },
-                        {
-                            path: 'services',
-                            name: 'company-services',
-                            component: AccountCompanyServices,
-                            children: [{
-                                    path: '',
-                                    name: 'company-services-list',
-                                    component: AccountCompanyServicesList
-                                },
-                                {
-                                    path: 'buy/:type',
-                                    name: 'company-services-buy',
-                                    component: AccountCompanyServicesBuy
-                                },
-                                {
-                                    path: 'buy/:type/:product',
-                                    name: 'company-services-buy-product',
-                                    component: AccountCompanyServicesBuy
-                                },
-                            ]
-                        },
-                        {
-                            path: 'settings',
-                            name: 'company-settings',
-                            component: AccountCompanySettings
-                        },
-                        {
-                            path: 'support',
-                            name: 'company-support',
-                            component: AccountCompanySupport
-                        },
-                        {
-                            path: 'installment',
-                            name: 'company-installment',
-                            component: AccountCompanyInstallment
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            path: '/login|registration|logout',
-            name: 'page-compact',
-            component: PageCompact,
-            children: [{
-                    path: '/login',
-                    name: 'login',
-                    component: Login
-                },
-                {
-                    path: '/registration',
-                    name: 'registration',
-                    component: Registration
-                },
-                {
-                    path: '/logout',
-                    name: 'logout',
-                    component: Logout
-                },
-            ]
-        },
-        {
-            path: '/*',
-            name: 'page',
-            component: Page,
-            children: [{
-                    path: '/item/:slug',
-                    name: 'item',
-                    component: ItemPage,
-                    props: true
-                },
-                {
-                    path: '/lombards',
-                    name: 'lombards',
-                    component: TopPawnshops
-                },
-                {
-                    path: '/vip',
-                    name: 'vip',
-                    component: VipItemList
-                },
-                {
-                    path: '/sale-out',
-                    name: 'sale-out',
-                    component: SaleOutItems
-                },
-                {
-                    path: '/top-items',
-                    name: 'top-items',
-                    component: TopItems
-                },
-                {
-                    path: '/items-of-lombards',
-                    name: 'items-of-lombards',
-                    component: ItemsOfLombards
-                },
-                {
-                    path: '/items-of-banks',
-                    name: 'items-of-banks',
-                    component: ItemsOfBanks
-                },
-                {
-                    path: '/top-lombards',
-                    name: 'top-lombards',
-                    component: Top
-                },
-                {
-                    path: '/sale',
-                    name: 'sale',
-                    component: Sale
-                },
-                {
-                    path: '/lombard/:id',
-                    name: 'pawnshop',
-                    component: PawnshopListings
-                },
-                {
-                    path: '/p/:slug',
-                    name: 'info',
-                    component: InformationalPage
-                },
-
-                {
-                    path: '/v-:city',
-                    name: 'search_in_city',
-                    component: SearchResults
-                },
-                {
-                    path: '/:category',
-                    name: 'search_in_category',
-                    component: SearchResults
-                },
-                {
-                    path: '/:category/:subcategory',
-                    name: 'search_in_subcategory',
-                    component: SearchResults
-                },
-                {
-                    path: '/:category/:subcategory/:subsubcategory',
-                    name: 'search_in_subsubcategory',
-                    component: SearchResults
-                },
-                {
-                    path: '/*/v-:city',
-                    name: 'search_in_category_by_city',
-                    component: SearchResults
-                },
-                {
-                    path: '/search',
-                    name: 'search',
-                    component: SearchResults
-                },
-                {
+                path: '',
+                name: 'user-profile',
+                component: AccountUserProfile,
+                children: [{
                     path: '',
-                    name: 'home',
-                    component: Home
+                    name: 'user-profile-info',
+                    component: AccountUserProfileInfo
                 },
+                {
+                    path: 'edit',
+                    name: 'user-profile-edit',
+                    component: AccountUserProfileEdit
+                },
+                ]
+            },
+            {
+                path: 'favorites',
+                name: 'user-favorites',
+                component: AccountUserFavorites
+            },
+            {
+                path: 'messages',
+                name: 'user-messages',
+                component: AccountUserMessages
+            },
+            {
+                path: 'settings',
+                name: 'user-settings',
+                component: AccountUserSettings
+            },
             ]
         },
+        {
+            path: 'company',
+            name: 'company',
+            component: AccountCompanyContent,
+            children: [{
+                path: '',
+                name: 'company-profile',
+                component: AccountCompanyProfile,
+                children: [{
+                    path: '',
+                    name: 'company-profile-info',
+                    component: AccountCompanyProfileInfo
+                },
+                {
+                    path: 'edit',
+                    name: 'company-profile-edit',
+                    component: AccountCompanyProfileEdit
+                },
+                ]
+            },
+            {
+                path: 'listings',
+                name: 'company-listings',
+                component: AccountCompanyListingsPage,
+                children: [
+                    {
+                        path: ':id',
+                        name: 'company-listings-item',
+                        component: AccountCompanyListing,
+                        children: [{
+                            path: '',
+                            name: 'company-listing-item-detail',
+                            component: AccountCompanyListingDetail
+                        },
+                        {
+                            path: 'edit',
+                            name: 'company-listing-item-edit',
+                            component: AccountCompanyListingEdit
+                        },
+                        ]
+                    },
+                    {
+                        path: '',
+                        name: 'company-listings-list',
+                        component: AccountCompanyListings
+                    },
+                ]
+            },
+            {
+                path: 'add-product',
+                name: 'company-add-product',
+                component: AccountCompanyAddProduct
+            },
+            {
+                path: 'messages',
+                name: 'company-messages',
+                component: AccountCompanyMessages
+            },
+            {
+                path: 'services',
+                name: 'company-services',
+                component: AccountCompanyServices,
+                children: [
+                    {
+                        path: '',
+                        name: 'company-services-list',
+                        component: AccountCompanyServicesList
+                    },
+                    {
+                        path: 'buy/:type',
+                        name: 'company-services-buy',
+                        component: AccountCompanyServicesBuy
+                    },
+                    {
+                        path: 'buy/:type/:product',
+                        name: 'company-services-buy-product',
+                        component: AccountCompanyServicesBuy
+                    },
+                ]
+            },
+            {
+                path: 'settings',
+                name: 'company-settings',
+                component: AccountCompanySettings
+            },
+            {
+                path: 'support',
+                name: 'company-support',
+                component: AccountCompanySupport
+            },
+            {
+                path: 'installment',
+                name: 'company-installment',
+                component: AccountCompanyInstallment
+            }
+            ]
+        }
+        ]
+    },
+    {
+        path: '/login|registration|logout',
+        name: 'page-compact',
+        component: PageCompact,
+        children: [{
+            path: '/login',
+            name: 'login',
+            component: Login
+        },
+        {
+            path: '/registration',
+            name: 'registration',
+            component: Registration
+        },
+        {
+            path: '/logout',
+            name: 'logout',
+            component: Logout
+        },
+        ]
+    },
+    {
+        path: '/*',
+        name: 'page',
+        component: Page,
+        children: [{
+            path: '/item/:slug',
+            name: 'item',
+            component: ItemPage,
+            props: true
+        },
+        {
+            path: '/lombards',
+            name: 'lombards',
+            component: TopPawnshops
+        },
+        {
+            path: '/vip',
+            name: 'vip',
+            component: VipItemList
+        },
+        {
+            path: '/sale-out',
+            name: 'sale-out',
+            component: SaleOutItems
+        },
+        {
+            path: '/top-items',
+            name: 'top-items',
+            component: TopItems
+        },
+        {
+            path: '/items-of-lombards',
+            name: 'items-of-lombards',
+            component: ItemsOfLombards
+        },
+        {
+            path: '/items-of-banks',
+            name: 'items-of-banks',
+            component: ItemsOfBanks
+        },
+        {
+            path: '/top-lombards',
+            name: 'top-lombards',
+            component: Top
+        },
+        {
+            path: '/sale',
+            name: 'sale',
+            component: Sale
+        },
+        {
+            path: '/lombard/:id',
+            name: 'pawnshop',
+            component: PawnshopListings
+        },
+        {
+            path: '/p/:slug',
+            name: 'info',
+            component: InformationalPage
+        },
+
+        {
+            path: '/v-:city',
+            name: 'search_in_city',
+            component: SearchResults
+        },
+        {
+            path: '/:category',
+            name: 'search_in_category',
+            component: SearchResults
+        },
+        {
+            path: '/:category/:subcategory',
+            name: 'search_in_subcategory',
+            component: SearchResults
+        },
+        {
+            path: '/:category/:subcategory/:subsubcategory',
+            name: 'search_in_subsubcategory',
+            component: SearchResults
+        },
+        {
+            path: '/*/v-:city',
+            name: 'search_in_category_by_city',
+            component: SearchResults
+        },
+        {
+            path: '/search',
+            name: 'search',
+            component: SearchResults
+        },
+        {
+            path: '',
+            name: 'home',
+            component: Home
+        },
+        ]
+    },
         // {
         //     path: '/new/profile',
         //     name: 'newProfile',

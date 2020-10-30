@@ -12,14 +12,10 @@ import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import './plugins/bootstrap'
 import vuetify from './plugins/vuetify';
-window._ = require('lodash');
 
 library.add(faUserSecret)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
-
-Vue.config.productionTip = false
-
 Vue.prototype.$http = axios
 axios.defaults.baseURL = 'https://api.kupizalog.kz/';
 
