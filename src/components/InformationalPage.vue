@@ -7,7 +7,6 @@
 </template>
 
 <script>
-
 export default {
   name: "InformationalPage",
   components: {},
@@ -28,7 +27,6 @@ export default {
     },
   },
   mounted: function () {
-    console.log("inf page");
     this.$http
       .get("page/list/", {
         headers: {
@@ -49,8 +47,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/variables";
-@import "@/assets/mixins";
+@import "src/assets/variables";
+@import "src/assets/mixins";
 
 .page {
   margin-top: 35px;

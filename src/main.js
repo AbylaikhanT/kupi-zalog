@@ -7,18 +7,8 @@ import { VueMaskDirective } from 'v-mask';
 import VueMeta from 'vue-meta';
 import VModal from 'vue-js-modal';
 import axios from 'axios'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import './plugins/bootstrap'
 import vuetify from './plugins/vuetify';
-window._ = require('lodash');
-
-library.add(faUserSecret)
-
-Vue.component('font-awesome-icon', FontAwesomeIcon)
-
-Vue.config.productionTip = false
 
 Vue.prototype.$http = axios
 axios.defaults.baseURL = 'https://api.kupizalog.kz/';
@@ -185,7 +175,7 @@ const store = new Vuex.Store({
                         store.dispatch('setUserInfo');
                         store.dispatch('setUserCompany').then((company) => {
                             if (company.status) {
-                                store.dispatch('setCompany').then(function() {
+                                store.dispatch('setCompany').then(function () {
                                     resolve();
                                 }.bind(this));
                             } else {
@@ -240,7 +230,7 @@ const store = new Vuex.Store({
     }
 });
 
-axios.interceptors.request.use(function(config) {
+axios.interceptors.request.use(function (config) {
     if (this && this.getters.loggedIn) {
         config.headers.Authorization = this.state.token;
     }

@@ -94,7 +94,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/variables";
+@import "src/assets/variables";
 
 .overlay {
   display: none;

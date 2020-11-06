@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/variables";
+@import "src/assets/variables";
 
 .toolbar {
   display: flex;
