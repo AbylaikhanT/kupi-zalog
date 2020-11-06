@@ -17,11 +17,11 @@
     <span>* Обязательны для заполнения</span>
     <InputCheckbox @changed="setAgreed">
       Я соглашаюсь с
-      <a href="/p/polzovatelskie-sog" target="_blank"
+      <a href="/agreement" target="_blank"
         >пользовательским соглашением</a
       >
       и
-      <a href="/p/politika-konf" target="_blank"
+      <a href="/politicconf" target="_blank"
         >политикой конфиденциальности</a
       >
     </InputCheckbox>
@@ -107,7 +107,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/variables";
+@import "src/assets/variables";
 
 .info {
   display: flex;

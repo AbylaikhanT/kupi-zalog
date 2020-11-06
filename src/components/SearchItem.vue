@@ -160,7 +160,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/variables";
+@import "src/assets/variables";
 
 .item {
   display: flex;
@@ -182,7 +182,7 @@ export default {
     .image {
       width: 145px;
       height: 121px;
-      /*background-image: url('../assets/img/item.png');*/
+      /*background-image: url('../..src/assets/variables/img/item.png');*/
       background-size: cover;
       background-position: center center;
     }
@@ -194,7 +194,7 @@ export default {
       z-index: 1;
       width: 45px;
       height: 20px;
-      background-image: url("../assets/img/icons/discount.svg");
+      background-image: url("../assets/img/icons/money-bag.svg");
       background-size: contain;
 
       span {
@@ -215,7 +215,7 @@ export default {
       z-index: 1;
       width: 45px;
       height: 20px;
-      /*background-image: url('../assets/img/icons/discount.svg');*/
+      /*background-image: url('../assets/img/icons/money-bag.svg');*/
       background-size: contain;
 
       span {

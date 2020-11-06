@@ -1,12 +1,12 @@
   <template>
   <div class="results">
     <div class="d-flex justify-content-center" v-if="this.resultLoading">
-      <div class="spinner-border text-primary spinner-own" role="status">
+      <!--<div class="spinner-border text-primary spinner-own" role="status">
         <span class="sr-only">Loading...</span>
-      </div>
+      </div>-->
     </div>
-    <div v-else-if="!notFound">
-      <h3 v-if="results">
+    <div>
+      <h3>
         Найдено {{ results.count ? results.count : 0 }} объявлений
       </h3>
       <div class="items">
@@ -39,8 +39,8 @@
         </div>
       </div>
     </div>
-    <div v-else>
-      <h1>Уупс! У вас 404.</h1>
+    <div v-if="results.count == 0">
+      <h5>В этой категории нет объявлений</h5>
     </div>
   </div>
 </template>
@@ -170,7 +170,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/variables";
+@import "src/assets/variables";
 
 .results {
   @media screen and (max-width: 1170px) {

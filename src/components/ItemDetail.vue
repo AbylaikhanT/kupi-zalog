@@ -95,7 +95,10 @@
             <div v-if="!phoneShown" @click="show" class="show">
               показать телефон
             </div>
-          </div>
+        </div>
+        <p class="mt-2">
+          <span>Номер компании: </span><a :href="'tel:' + phonePart">{{ getCompanyNum }}</a>
+        </p>
         </div>
         <!--<div class="controls">-->
         <!--<button class="message">Написать</button>-->
@@ -142,6 +145,7 @@ export default {
       item: {},
       favorite: false,
       loading: false,
+      companyNum: '',
     };
   },
   computed: {
@@ -151,12 +155,17 @@ export default {
       }
       return 0
     },
+    getCompanyNum() {
+      if (!this.item.product) {
+        return "";
+      }
+      return "+7" + this.item.product.company.public_number.toString();
+    },
     phoneParsed() {
       if (!this.item.product) {
         return "";
       }
-      let phone = this.item.product.company.public_number.toString();
-      phone = "+7" + phone;
+      let phone = "+7" + this.item.product.public_number.toString();
       return (
         phone.substring(0, 2) +
         " (" +
@@ -245,7 +254,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/variables";
+@import "src/assets/variables";
 
 .item {
   background: $white;
@@ -339,6 +348,7 @@ export default {
       .price-row {
         margin-top: 20px;
         display: flex;
+        position: relative;
         justify-content: space-between;
 
         .price {

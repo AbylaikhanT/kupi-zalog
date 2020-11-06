@@ -130,8 +130,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/variables";
-@import "@/assets/mixins";
+@import "src/assets/variables";
+@import "src/assets/mixins";
 
 footer {
   height: 410px;
@@ -164,7 +164,7 @@ footer {
       .logo {
         width: 159px;
         height: 27px;
-        background-image: url("../assets/img/logo.png");
+        background-image: url("src/assets/img/logo.png");
         background-size: cover;
         cursor: pointer;
       }

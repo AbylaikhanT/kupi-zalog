@@ -35,6 +35,7 @@ $ npm run serve
 ## Deploy
 
 ```bash
+$ git pull --rebase origin develop
 $ npm run build
 $ sudo systemctl restart nginx
 ```

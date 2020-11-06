@@ -7,15 +7,9 @@ import { VueMaskDirective } from 'v-mask';
 import VueMeta from 'vue-meta';
 import VModal from 'vue-js-modal';
 import axios from 'axios'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import './plugins/bootstrap'
 import vuetify from './plugins/vuetify';
 
-library.add(faUserSecret)
-
-Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.prototype.$http = axios
 axios.defaults.baseURL = 'https://api.kupizalog.kz/';
 

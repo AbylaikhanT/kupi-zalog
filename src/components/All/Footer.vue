@@ -127,8 +127,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/variables";
-@import "@/assets/mixins";
+@import "src/assets/variables";
+@import "src/assets/mixins";
 
 footer {
   height: 410px;

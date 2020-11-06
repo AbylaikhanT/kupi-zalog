@@ -47,8 +47,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/variables";
-@import "@/assets/mixins";
+@import "src/assets/variables";
+@import "src/assets/mixins";
 
 .page {
   margin-top: 35px;

@@ -50,6 +50,8 @@ import ItemsOfBanks from "@/components/ItemsOfBanks";
 import NotFound from "@/components/NotFound";
 import VipItemList from "@/components/All/VipItemList";
 import CloudPayment from "@/components/All/CloudPayment";
+import Agreement from "@/components/InformationalPages/Agreement";
+import politicConf from "@/components/InformationalPages/politicConf";
 
 // import NewProfile from '@/components/NewProfile';
 // import NewProfileSettings from '@/components/NewProfileSettings';
@@ -67,6 +69,16 @@ export default new Router({
         path: '/cloudpayments',
         name: 'cloudpayments',
         component: CloudPayment
+    },
+    {
+        path: '/politicconf',
+        name: 'politicConf',
+        component: politicConf
+    },
+    {
+        path: '/agreement',
+        name: 'Agreement',
+        component: Agreement
     },
     {
         path: '/404',
