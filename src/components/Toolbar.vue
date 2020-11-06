@@ -156,7 +156,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/_variables.scss";
+@import "../..src/assets/variables/_variables.scss";
 
 .container {
   padding: 25px 20px 0 20px;
@@ -180,7 +180,7 @@ export default {
     display: block;
     width: 159px;
     height: 27px;
-    background-image: url("../assets/img/logo.png");
+    background-image: url("src/assets/img/logo.png");
     background-size: cover;
   }
 

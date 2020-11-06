@@ -70,8 +70,6 @@ export default {
     },
   },
   created() {
-    console.log("iNav");
-
     this.$http.get("page/list").then(
       function (response) {
         this.tabs = response.data;
@@ -82,7 +80,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/variables";
+@import "src/assets/variables";
 
 .navbar {
   width: 100vw;

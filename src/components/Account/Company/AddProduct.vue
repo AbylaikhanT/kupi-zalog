@@ -22,7 +22,11 @@
         <div class="right">
           <div v-if="field.type === 'select'" class="select-wrapper">
             <select v-model="filledFields[field.id]">
-              <option v-for="(value,key) in field.values" :key="key" :value="value.value">
+              <option
+                v-for="(value, key) in field.values"
+                :key="key"
+                :value="value.value"
+              >
                 {{ value.value }}
               </option>
             </select>
@@ -57,6 +61,14 @@
         <div class="left">Название</div>
         <div class="right">
           <input v-model="name" type="text" />
+        </div>
+      </div>
+      <div class="name">
+        <div class="left">Телефон</div>
+        <div class="right">
+          <input :class="{ error: !startValidate || !allnumbers }" class="mb-2" v-model="publicNumber" type="text" />
+          <p v-show="!startValidate" class="error-message">Номер должен начинаться +77</p>
+          <p v-show="!allnumbers" class="error-message">Номер должен состоять из чисел</p>
         </div>
       </div>
       <div class="price">
@@ -121,6 +133,7 @@ export default {
       name: "",
       price: "",
       description: "",
+      publicNumber: "+7" + this.$store.state.company.public_number.toString(),
       images: [
         undefined,
         undefined,
@@ -143,6 +156,12 @@ export default {
         (category) => category.name
       ).join(" » ");
     },
+    startValidate() {
+      return this.publicNumber.substring(0,3) === '+77';
+    },
+    allnumbers() {
+      return parseInt(this.publicNumber.substring(3)) == this.publicNumber.substring(3);
+    }
   },
   methods: {
     ...mapActions(["openModal"]),
@@ -151,6 +170,7 @@ export default {
       formData.append("name", this.name);
       formData.append("price", this.price);
       formData.append("content", this.description);
+      formData.append("public_number", this.publicNumber);
       formData.append(
         "category",
         this.selectedCategory[this.selectedCategory.length - 1].id
@@ -254,8 +274,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/variables";
+@import "src/assets/variables";
 
+.error {
+  border: 1px solid #ff0048 !important;
+}
+.error-message {
+  color: #ff0048;
+}
 .product {
   padding: 40px 30px;
   width: 100%;
@@ -466,7 +492,7 @@ export default {
 
     .name {
       display: flex;
-      align-items: center;
+      align-items: start;
       padding: 30px 0;
       border-top: 1px solid $profile-password-gray;
 
@@ -480,6 +506,7 @@ export default {
         justify-content: flex-end;
         font-size: 16px;
         color: $avatar-black;
+        margin-top: 10px;
 
         @media screen and (max-width: 1170px) {
           width: 100%;

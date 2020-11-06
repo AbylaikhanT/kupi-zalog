@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-@import '@/assets/variables';
-@import '@/assets/mixins';
+@import '../assets/variables';
+@import '../assets/mixins';
 html {
     scroll-behavior: smooth;
 }

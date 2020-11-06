@@ -1,11 +1,11 @@
 <template>
-  <div @click="clicked" class="item">
+  <div @click.exact="clicked" class="item">
     <div class="top">
       <div :style="getStyle(image)" class="image"></div>
       <div class="overlay">
         <div :style="getStyle(tag)" class="tag"></div>
         <div v-if="count" class="count">{{ count }}</div>
-        <div @click="clicked" :class="{ active: isFavorite }" class="favorite">
+        <div @click.stop="clicked" :class="{ active: isFavorite }" class="favorite">
           <i class="fas fa-star"></i>
         </div>
       </div>
@@ -59,6 +59,7 @@ export default {
     },
   },
   data() {
+    console.log(this.id);
     return {
       isFavorite: this.favorite,
     };
@@ -141,7 +142,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/variables";
+@import "src/assets/variables";
 
 .item {
   width: 250px;
@@ -181,11 +182,12 @@ export default {
 
       .tag {
         position: absolute;
-        top: 5px;
-        left: -10px;
-        width: 60px;
-        height: 25px;
+        top: -40px;
+        left: -45px;
+        width: 300px;
+        height: 125px;
         background-size: contain;
+        pointer-events: none;
       }
 
       .count {
@@ -200,6 +202,7 @@ export default {
       }
 
       .favorite {
+        z-index: 1;
         position: absolute;
         top: 5px;
         right: 5px;

@@ -54,7 +54,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/_variables.scss";
+@import "../..src/assets/variables/_variables.scss";
 
 .container {
   padding-top: 60px;

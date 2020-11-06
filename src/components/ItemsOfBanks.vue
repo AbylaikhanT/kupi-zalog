@@ -57,6 +57,7 @@ export default {
   mounted: function () {
     this.$http.get("product/filter?company_type=2").then(
       function (response) {
+        this.itemsLoading = false;
         this.items = response.data.ads;
         this.pagesCount = response.data["all-pages"];
       }.bind(this)
@@ -66,7 +67,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/assets/variables";
+@import "src/assets/variables";
 
 .vip {
   padding-top: 40px;
