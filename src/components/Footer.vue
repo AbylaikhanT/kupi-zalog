@@ -34,7 +34,7 @@
               <!--<li><a href="top-lombards" >Топ товары</a></li>-->
               <li><a @click="redirect('vip')">Горячие</a></li>
               <li>
-                <a @click="redirect('/lombards?sale=true')">Распппродцкажа</a>
+                <a @click="redirect('sale-out')">Распппродцкажа</a>
               </li>
               <li><a @click="$router.push('/p/auction')">Аукцион</a></li>
               <li><a @click="redirect('top-lombards')">Топ-ломбарды</a></li>
