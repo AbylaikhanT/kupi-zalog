@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     nextPage: function () {
-      this.$http.get("monetizations/sell-out?page=" + ++this.page).then(
+      this.$http.get("monetizations/all-sell-out?page=" + ++this.page).then(
         function (response) {
           this.items = this.items.concat(response.data.ads);
         }.bind(this)
@@ -52,7 +52,7 @@ export default {
     },
   },
   mounted: function () {
-    this.$http.get("monetizations/sell-out?page=1").then(
+    this.$http.get("monetizations/all-sell-out?page=1").then(
       function (response) {
         this.items = response.data.ads;
         this.pagesCount = response.data["all-pages"];

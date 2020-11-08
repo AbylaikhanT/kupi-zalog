@@ -59,7 +59,6 @@ export default {
     },
   },
   data() {
-    console.log(this.id);
     return {
       isFavorite: this.favorite,
     };
