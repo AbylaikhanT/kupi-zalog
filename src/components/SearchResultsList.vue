@@ -170,7 +170,6 @@ export default {
       });
   },
   updated() {
-    console.log(this.resultLoading);
   },
 };
 </script>
