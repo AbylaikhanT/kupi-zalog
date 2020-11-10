@@ -114,7 +114,9 @@ export default {
         {
           onSuccess: function () {
             // success
+            this.store.state.balance = this.store.state.balance + this.amount;
             console.log("Yeah bitch");
+
           },
           onFail: function () {
             // fail
