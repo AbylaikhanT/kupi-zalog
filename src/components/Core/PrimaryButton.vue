@@ -1,5 +1,5 @@
 <template>
-  <button @click="clicked()">
+  <button @click="clicked()" :disabled="disabled">
     <slot></slot>
   </button>
 </template>
@@ -7,6 +7,9 @@
 <script>
 export default {
   name: "PrimaryButton",
+  props: {
+    disabled: Boolean,
+  },
   methods: {
     clicked() {
       this.$emit("clicked", true);
@@ -28,4 +31,8 @@ button {
   font-weight: bold;
   letter-spacing: 0.5px;
 }
-</style>
+button:disabled {
+  background-color: $gray;
+  border: 1px solid $gray;
+}
+  </style>
