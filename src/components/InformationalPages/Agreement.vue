@@ -1,7 +1,7 @@
 <template>
   <div>
     <iframe src="https://drive.google.com/file/d/1h0nheM60WnPemMxy8d5GrYVW0kN4vjz5/preview"
-                style="width: 100vw; height: 100vh">asfasfasf</iframe>
+                width="640" height="480">asfasfasf</iframe>
   </div>
 </template>
 

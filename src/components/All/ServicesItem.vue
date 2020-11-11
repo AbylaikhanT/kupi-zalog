@@ -38,7 +38,6 @@ export default {
     name: String,
     price: Number,
     created_at: String,
-    selected: Boolean,
   },
   computed: {
     date: function () {
@@ -47,8 +46,14 @@ export default {
         : "";
     },
   },
+  data() {
+    return {
+      selected: false,
+    };
+  },
   methods: {
     clicked(id) {
+      this.selected = !this.selected;
       this.$emit("clicked", id);
     },
     getBackground(image) {

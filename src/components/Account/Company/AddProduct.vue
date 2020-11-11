@@ -170,7 +170,7 @@ export default {
       formData.append("name", this.name);
       formData.append("price", this.price);
       formData.append("content", this.description);
-      formData.append("public_number", this.publicNumber.substring(2));
+      formData.append("public_number", this.publicNumber);
       formData.append(
         "category",
         this.selectedCategory[this.selectedCategory.length - 1].id

@@ -14,8 +14,11 @@
       <div v-if="$route.name === 'home'" class="categories-wrapper">
         <Categories></Categories>
       </div>
+      <div class="d-flex justify-content-start">
+        <DescriptionOfCategories></DescriptionOfCategories>
+      </div>
       <div class="content-wrapper">
-        <div class="content" >
+        <div class="content">
           <router-view></router-view>
         </div>
         <div class="menu">
@@ -72,7 +75,7 @@ import Top from "@/components/Top";
 import NavbarMenu from "@/components/All/NavbarMenu";
 import DropdownMenu from "@/components/All/DropdownMenu";
 import MobileFilters from "@/components/All/MobileFilters";
-import SearchResults from "@/components/SearchResults";
+import DescriptionOfCategories from "@/components/DescriptionOfCategories";
 
 export default {
   name: "Page",
@@ -89,7 +92,6 @@ export default {
     };
   },
   components: {
-    SearchResults,
     Navbar,
     Toolbar,
     Search,
@@ -100,6 +102,7 @@ export default {
     NavbarMenu,
     DropdownMenu,
     MobileFilters,
+    DescriptionOfCategories,
   },
   data() {
     return {
@@ -209,10 +212,6 @@ export default {
       @media screen and (max-width: 1170px) {
         width: 100%;
       }
-    }
-
-    .more-results {
-      margin-top: 24px;
     }
 
     .menu {
