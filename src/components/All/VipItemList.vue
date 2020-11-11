@@ -30,7 +30,7 @@
 <script>
 import Item from "@/components/All/Item";
 
-export default  {
+export default {
   name: "VipItemList",
 
   components: {
@@ -45,9 +45,6 @@ export default  {
         ? `product/company-ads/${this.$store.state.company.id}`
         : "monetizations/vip-products";
     },
-  },
-  mounted() {
-    document.documentElement.scrollTop = 0;
   },
   data() {
     return {

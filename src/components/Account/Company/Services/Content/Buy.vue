@@ -9,10 +9,8 @@
     <!--</div>-->
     <div class="info">
       <span>Итого: {{ type.price }} монет</span>
-      <PrimaryButton @clicked="buy(false)" :disabled="selectedItems.length === 0 || (type.slug === 'sale' && selectedItems.length > 10)">Оплатить</PrimaryButton>
+      <PrimaryButton @clicked="buy(false)">Оплатить</PrimaryButton>
     </div>
-    <h5>Выберите товар<span v-if="type.slug === 'sale'" style="font-weight: 500; font-size: 20px">ы</span></h5>
-    <h5 class="mb-3" v-if="type.slug === 'sale'">Примечание: Можно выбрать максимум до 10 товаров</h5>
     <div class="items">
       <ServicesItem
         v-for="item in items"
@@ -22,7 +20,6 @@
         :name="item.name"
         :price="item.price"
         :created_at="item.created_at"
-        :selected="selectedItems.includes(item.id)"
         @clicked="selected"
       ></ServicesItem>
     </div>
@@ -59,24 +56,20 @@ export default {
       });
     },
     selected(id) {
-      if (this.type.slug === 'sale') {
-        const index = this.selectedItems.indexOf(id);
-        if (index === -1) {
-          this.selectedItems.push(id);
-        } else {
-          this.selectedItems.splice(index, 1);
-        }
+      const index = this.selectedItems.indexOf(id);
+      if (index === -1) {
+        this.selectedItems.push(id);
       } else {
-        this.selectedItems = [id];
+        this.selectedItems.splice(index, 1);
       }
     },
     buy(product) {
       if (
-          confirm(
-              product
-                  ? `Вы действительно хотите продвинуть объявление?`
-                  : `Вы действительно хотите купить "${this.type.name}" за ${this.type.price} монет?`
-          )
+        confirm(
+          product
+            ? `Вы действительно хотите продвинуть объявление?`
+            : `Вы действительно хотите купить "${this.type.name}" за ${this.type.price} монет?`
+        )
       ) {
         const params = {
           type_id: this.$route.params.type,
@@ -84,34 +77,34 @@ export default {
         };
         this.$http
             .post("monetizations/create", params, {
-              headers: {
-                Authorization: this.$store.state.token,
-              },
-            })
-            .then(
-                function (response) {
-                  if (response.data.status) {
-                    this.$store.commit("setListingSuccess", true);
-                    this.$store.dispatch("setBalance");
-                    this.redirect("company-services-list");
-                    if (this.selectedItems.length === 1) {
-                      this.$notify({
-                        group: "sign",
-                        title: "Успешно!",
-                        text: "Объявление успешно добавлено в продвигаемые.",
-                        type: "success",
-                      });
-                    } else {
-                      this.$notify({
-                        group: "sign",
-                        title: "Успешно!",
-                        text: "Объявления успешно добавлены в продвигаемые.",
-                        type: "success",
-                      });
-                    }
-                  }
-                }.bind(this)
-            );
+            headers: {
+              Authorization: this.$store.state.token,
+            },
+          })
+          .then(
+            function (response) {
+              if (response.data.status) {
+                this.$store.commit("setListingSuccess", true);
+                this.$store.dispatch("setBalance");
+                this.redirect("company-services-list");
+                if (this.selectedItems.length === 1) {
+                  this.$notify({
+                    group: "sign",
+                    title: "Успешно!",
+                    text: "Объявление успешно добавлено в продвигаемые.",
+                    type: "success",
+                  });
+                } else {
+                  this.$notify({
+                    group: "sign",
+                    title: "Успешно!",
+                    text: "Объявления успешно добавлены в продвигаемые.",
+                    type: "success",
+                  });
+                }
+              }
+            }.bind(this)
+          );
       } else {
         this.$store.commit("setListing", false);
         this.$store.commit("setListingSuccess", false);

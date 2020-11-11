@@ -16,7 +16,7 @@
       ></CompanyItem>
     </div>
     <div
-      :class="{ hidden: page === pagesCount - 1 || items.length === 0 }"
+      :class="{ hidden: page === pagesCount || items.length === 0 }"
       class="more"
     >
       <button @click="nextPage()">Смотреть больше</button>
@@ -35,8 +35,8 @@ export default {
   data() {
     return {
       items: [],
-      url: `product/company-ads/${this.$store.state.company.id}?page=2`,
-      page: 2,
+      url: `product/company-ads/${this.$store.state.company.id}`,
+      page: 1,
       pagesCount: undefined,
     };
   },

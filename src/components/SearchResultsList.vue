@@ -1,8 +1,5 @@
   <template>
   <div class="results">
-    <div class="d-flex justify-content-start mb-3">
-      <DescriptionOfCategories></DescriptionOfCategories>
-    </div>
     <div class="d-flex justify-content-center" v-if="this.resultLoading">
       <!--<div class="spinner-border text-primary spinner-own" role="status">
         <span class="sr-only">Loading...</span>
@@ -50,14 +47,11 @@
 
 <script>
 import SearchItem from "@/components/SearchItem";
-import DescriptionOfCategories from "@/components/DescriptionOfCategories";
-
 
 export default {
   name: "SearchResultsList",
   components: {
     SearchItem,
-    DescriptionOfCategories,
   },
   data: function () {
     return {
@@ -144,7 +138,6 @@ export default {
       params.page = this.findGetParameter("page");
       this.page = parseInt(this.findGetParameter("page"));
     }
-    console.log(window.location);
     this.$http
       .get(
         "product/filter",
