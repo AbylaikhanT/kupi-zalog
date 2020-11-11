@@ -14,8 +14,7 @@ $ cd kz-front
 2. Change branch
 
 ```bash
-$ git fetch origin new_version
-$ git checkout new_version
+$ git checkout develop
 ```
 
 3. Install Javascript dependencies
@@ -36,6 +35,7 @@ $ npm run serve
 
 ```bash
 $ git pull --rebase origin develop
+$ npm install
 $ npm run build
 $ sudo systemctl restart nginx
 ```
