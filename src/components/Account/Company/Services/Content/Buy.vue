@@ -11,6 +11,8 @@
       <span>Итого: {{ type.price }} монет</span>
       <PrimaryButton @clicked="buy(false)">Оплатить</PrimaryButton>
     </div>
+    <h5>Выберите товар<span v-if="type.slug === 'sale'" style="font-weight: 500; font-size: 20px">ы</span></h5>
+    <h5 class="mb-3" v-if="type.slug === 'sale'">Примечание: Можно выбрать максимум до 10 товаров.</h5>
     <div class="items">
       <ServicesItem
         v-for="item in items"
