@@ -52,6 +52,8 @@ import VipItemList from "@/components/All/VipItemList";
 import CloudPayment from "@/components/All/CloudPayment";
 import Agreement from "@/components/InformationalPages/Agreement";
 import politicConf from "@/components/InformationalPages/politicConf";
+import AllItems from "@/components/AllItems";
+
 
 // import NewProfile from '@/components/NewProfile';
 // import NewProfileSettings from '@/components/NewProfileSettings';
@@ -261,6 +263,11 @@ export default new Router({
             component: ItemPage,
             props: true
         },
+                {
+                    path: '/all',
+                    name: 'allItems',
+                    component: AllItems,
+                },
         {
             path: '/lombards',
             name: 'lombards',
