@@ -132,6 +132,17 @@ export default new Router({
                 component: AccountUserSettings
             },
             ]
+        }
+        ]
+    },
+    {
+        path: '/login|registration|logout',
+        name: 'page-compact',
+        component: PageCompact,
+        children: [{
+            path: '/login',
+            name: 'login',
+            component: Login
         },
         {
             path: 'company',
@@ -263,11 +274,6 @@ export default new Router({
             component: ItemPage,
             props: true
         },
-                {
-                    path: '/all',
-                    name: 'allItems',
-                    component: AllItems,
-                },
         {
             path: '/lombards',
             name: 'lombards',
