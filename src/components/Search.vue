@@ -19,7 +19,7 @@
               <div
                 class="outer"
                 :class="{ 'outer-hover': showCategory }"
-                @click="chooseCategory(false)"
+                @click="chooseCategory('', 1)"
               >
                 Во всех разделах
               </div>
@@ -154,11 +154,11 @@
         </button>
       </div>
       <div v-if="!hide" class="right">
-        <a class="mr-2" @click="$router.push('items-of-lombards')">
+        <a class="mr-2" @click="$router.push('all')">
           <div>
             <button
               @click="selectedType = undefined"
-              :class="{ active: !selectedType }"
+              :class="{ active: $route.name === 'allItems' }"
             >
               <i class="fas fa-border-all"></i>
             </button>
@@ -243,7 +243,7 @@ export default {
         if (this.selectedResult !== false) {
           return this.results[this.selectedResult];
         } else {
-          return this.searchQuery;
+          return this.searchQuery || '';
         }
       },
       set: function (newValue) {
@@ -306,39 +306,23 @@ export default {
     },
     redirectToSearchPage: function () {
       let location = "";
-      location += this.selectedCategory ? "/" + this.getParentSlug() : "";
+      location += this.selectedCategory ? "/" + this.getParentSlug() : "/all";
       location += this.selectedLocation
         ? "/v-" + this.selectedLocation.slug
         : "";
-      location += this.search ? "?query=" + this.search : "";
-      location += this.selectedType ? "&type=" + this.selectedType : "";
+      location += this.selectedType ? "?type=" + this.selectedType + "&query=" + (this.search || '') : ("?query=" + (this.search || ''));
       window.location = location;
     },
     chooseCategory: function (category, depth) {
       this.selectedCategory = category;
       this.selectedCategoryDepth = depth;
       this.removeHoverCategory();
-      let location = "";
-      location += this.selectedCategory ? "/" + this.getParentSlug() : "";
-      location += this.selectedLocation
-        ? "/v-" + this.selectedLocation.slug
-        : "";
-      location += this.search ? "?query=" + this.search : "";
-      location += this.selectedType ? "&type=" + this.selectedType : "";
-      window.location = location;
     },
     chooseLocation: function (location, depth) {
       this.selectedLocation = location;
       this.selectedLocationDepth = depth;
       this.removeHoverLocation();
       let locations = "";
-      locations += this.selectedCategory ? "/" + this.getParentSlug() : "";
-      locations += this.selectedLocation
-        ? "/v-" + this.selectedLocation.slug
-        : "";
-      locations += this.search ? "?query=" + this.search : "";
-      locations += this.selectedType ? "&type=" + this.selectedType : "";
-      window.location = locations;
     },
     removeHoverCategory: function () {
       this.hoveredCategory = false;
