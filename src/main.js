@@ -12,6 +12,8 @@ import vuetify from './plugins/vuetify';
 
 Vue.prototype.$http = axios
 axios.defaults.baseURL = 'https://api.kupizalog.kz/';
+// axios.defaults.baseURL = 'http://localhost:8000/';
+// axios.defaults.baseURL = 'http://195.93.152.102:8000/';
 
 Vue.config.productionTip = false
 Vue.use(VueMeta);

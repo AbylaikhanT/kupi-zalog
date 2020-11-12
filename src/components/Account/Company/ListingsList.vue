@@ -42,17 +42,14 @@ export default {
   },
   methods: {
     nextPage: function () {
-      this.$http
-        .get(this.url, {
-          params: {
-            page: ++this.page,
-          },
-        })
-        .then(
-          function (response) {
-            this.items = this.items.concat(response.data.ads);
-          }.bind(this)
-        );
+      const payload = {
+        page: ++this.page,
+      };
+      this.$http.get(this.url, payload).then(
+        function (response) {
+          this.items = this.items.concat(response.data.ads);
+        }.bind(this)
+      );
     },
   },
   created() {
