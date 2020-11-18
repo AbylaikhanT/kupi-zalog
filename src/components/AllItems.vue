@@ -68,28 +68,38 @@ export default {
 
 <style lang="scss" scoped>
 @import "src/assets/variables";
+
 .vip {
   padding-top: 40px;
   padding-bottom: 0;
-  @media (min-width: 768px) {
-    padding-top: 80px;
-  }
+
   .items {
     display: flex;
     flex-wrap: wrap;
     max-width: 960px;
   }
+
   .item {
     margin-right: 25px;
     margin-top: 15px;
   }
+
+  @media screen and (max-width: 768px) {
+    padding: 80px 20px 0;
+    .item {
+      margin: 15px 0 0;
+    }
+  }
+
   .more {
     display: flex;
     justify-content: center;
     margin-top: 40px;
+
     &.hidden {
       display: none;
     }
+
     button {
       width: 220px;
       height: 49px;
@@ -101,11 +111,23 @@ export default {
       border-radius: 6px;
     }
   }
+
   h3 {
     margin-bottom: 25px;
     font-size: 24px;
     font-weight: 500;
     color: $light-black;
+  }
+}
+@media screen and (max-width: 1170px) {
+  .vip {
+    margin-top: 20px;
+    padding: 0 20px;
+    width: 100%;
+
+    .item {
+      margin-right: 0;
+    }
   }
 }
 </style>
