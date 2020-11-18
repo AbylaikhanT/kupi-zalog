@@ -13,7 +13,7 @@
               <li><a @click="redirect('lombards')">Ломбарды</a></li>
               <!--<li><a @click="redirect('banks')">Банки</a></li>-->
               <li>
-                <a @click="$router.push('/p/zapreshchennye-tovary')"
+                <a @click="$router.push('/p/zapret-tovarov')"
                   >Запрещённые товары</a
                 >
               </li>
