@@ -37,7 +37,7 @@
       ></DropdownMenu>
       <MobileFilters
         v-if="filtersShown"
-        @toggled="toggleFilters()"
+        @toggled="toggleFilters()" style="margin-left: 2340px;"
       ></MobileFilters>
       <notifications group="sign" position="bottom left"></notifications>
     </div>
